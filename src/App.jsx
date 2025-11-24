@@ -21,6 +21,7 @@ import Sipekan from "./assets/sipekan.png";
 import Bsn from "./assets/bsn.png";
 import RuangCat from "./assets/ruangcat.png";
 import Booking from "./assets/booking.png";
+import Ekin from "./assets/ekin.png";
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -152,6 +153,14 @@ const Portfolio = () => {
       image: Booking,
       type: "Full Stack",
       link: "https://booking.silancurhighland.com",
+    },
+    {
+      title: "Ekinerja",
+      desc: "Aplikasi menghitung tunjangan ASN di kabupaten Seruyan.",
+      tech: ["Codeigniter 4", "Vue.js", "Bootstrap", "MySQL"],
+      image: Ekin,
+      type: "Full Stack",
+      link: "https://ekinerja.seruyankab.go.id",
     },
   ];
 
