@@ -237,7 +237,9 @@ const Portfolio = () => {
               <button
                 onClick={toggleTheme}
                 className={`p-2 rounded-full ${
-                  darkMode ? "text-yellow-400" : "text-slate-600"
+                  darkMode
+                    ? "text-yellow-400 bg-slate-900/90"
+                    : "text-gray-600 bg-slate-100"
                 }`}
               >
                 {darkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -246,8 +248,8 @@ const Portfolio = () => {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={`p-2 rounded-md ${
                   darkMode
-                    ? "text-slate-300 hover:bg-slate-800"
-                    : "text-gray-600 hover:bg-gray-100"
+                    ? "text-slate-300 hover:bg-slate-800 bg-slate-900/90"
+                    : "text-gray-600 hover:bg-gray-100 bg-slate-100"
                 }`}
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
