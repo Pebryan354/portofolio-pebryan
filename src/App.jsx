@@ -668,7 +668,7 @@ const Portfolio = () => {
                 className={`flex items-center gap-3 px-6 py-3 rounded-xl font-semibold border transition-all ${
                   darkMode
                     ? "border-slate-600 hover:bg-slate-800 text-white"
-                    : "border-blue-400 hover:bg-blue-600 hover:border-blue-600 text-white"
+                    : "border-blue-400 hover:bg-blue-600 hover:text-blue-100 hover:border-blue-600 text-white"
                 }`}
               >
                 <Linkedin size={20} />
