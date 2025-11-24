@@ -22,6 +22,7 @@ import Bsn from "./assets/bsn.png";
 import RuangCat from "./assets/ruangcat.png";
 import Booking from "./assets/booking.png";
 import Ekin from "./assets/ekin.png";
+import Sipresma from "./assets/sipresma.png";
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -161,6 +162,14 @@ const Portfolio = () => {
       image: Ekin,
       type: "Full Stack",
       link: "https://ekinerja.seruyankab.go.id",
+    },
+    {
+      title: "Sipresma",
+      desc: "Sistem Presensi Mahasiswa untuk Institut Pertanian STIPER Yogyakarta",
+      tech: ["Codeigniter 4", "Vue.js", "Bootstrap", "MySQL"],
+      image: Sipresma,
+      type: "Full Stack",
+      link: "https://instiper.my-appweb.com",
     },
   ];
 
