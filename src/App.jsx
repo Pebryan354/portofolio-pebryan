@@ -15,6 +15,7 @@ import {
   ChevronDown,
   Briefcase,
   ExternalLink,
+  Download,
 } from "lucide-react";
 
 import Sipekan from "./assets/sipekan.png";
@@ -23,6 +24,7 @@ import RuangCat from "./assets/ruangcat.png";
 import Booking from "./assets/booking.png";
 import Ekin from "./assets/ekin.png";
 import Sipresma from "./assets/sipresma.png";
+import CVFile from "./assets/pebryan_ibrahim.pdf";
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -355,6 +357,24 @@ const Portfolio = () => {
             >
               <Mail size={20} />
               Hubungi Saya
+            </a>
+
+            <a
+              href={CVFile}
+              download="Pebryan_Ibrahim.pdf"
+              onClick={(e) => {
+                // Prevent default hanya untuk preview agar tidak redirect ke '#'
+                if (CVFile === "#") e.preventDefault();
+                // Di lokal, biarkan onClick ini kosong atau hapus baris ini
+              }}
+              className={`px-8 py-3.5 rounded-lg font-semibold transition-all border ${
+                darkMode
+                  ? "border-emerald-500/50 hover:text-emerald-500 text-emerald-400 hover:bg-emerald-500/10"
+                  : "border-emerald-500 hover:text-emerald-500 text-emerald-600 hover:bg-emerald-50"
+              } flex items-center justify-center gap-2 cursor-pointer`}
+            >
+              <Download size={20} />
+              Download CV
             </a>
           </div>
 
