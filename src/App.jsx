@@ -24,6 +24,7 @@ import RuangCat from "./assets/ruangcat.png";
 import Booking from "./assets/booking.png";
 import Ekin from "./assets/ekin.png";
 import Sipresma from "./assets/sipresma.png";
+import Profile from "./assets/profile.png";
 import CVFile from "./assets/pebryan_ibrahim.pdf";
 
 const Portfolio = () => {
@@ -314,7 +315,7 @@ const Portfolio = () => {
             >
               {/* GANTI SRC DI BAWAH INI DENGAN LINK FOTO ANDA */}
               <img
-                src="https://avatars.githubusercontent.com/u/33095305?v=4"
+                src={Profile}
                 alt="Pebryan Ibrahim"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
