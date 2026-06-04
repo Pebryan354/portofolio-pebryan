@@ -18,13 +18,12 @@ import {
   Download,
 } from "lucide-react";
 
-import Sipekan from "./assets/sipekan.png";
-import Bsn from "./assets/bsn.png";
-import RuangCat from "./assets/ruangcat.png";
-import Booking from "./assets/booking.png";
-import Ekin from "./assets/ekin.png";
+import Notify from "./assets/notify.png";
+import Sell from "./assets/sell.png";
+import Mja from "./assets/mja.png";
+import Cashback from "./assets/cashback.png";
 import Sipresma from "./assets/sipresma.png";
-import Profile from "./assets/profile.png";
+import Profile from "./assets/profile.jpg";
 import CVFile from "./assets/pebryan_ibrahim.pdf";
 
 const Portfolio = () => {
@@ -35,7 +34,7 @@ const Portfolio = () => {
   // Handle scroll spy for active navigation
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "contact"];
+      const sections = ["home", "about", "skills", "projects", "experience", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -83,6 +82,7 @@ const Portfolio = () => {
     { name: "Tentang", id: "about" },
     { name: "Keahlian", id: "skills" },
     { name: "Proyek", id: "projects" },
+    { name: "Pengalaman", id: "experience" },
     { name: "Kontak", id: "contact" },
   ];
 
@@ -95,6 +95,8 @@ const Portfolio = () => {
         "Laravel",
         "CodeIgniter 4",
         "Express.js",
+        "Golang",
+        "Gin",
         "RESTful APIs",
         "MySQL",
       ],
@@ -114,65 +116,106 @@ const Portfolio = () => {
     {
       category: "Tools & Workflow",
       icon: <Terminal className="w-8 h-8 text-purple-500" />,
-      items: ["Git/GitHub/GitLab", "Composer", "NPM", "Postman", "Docker"],
+      items: ["Git/GitHub/GitLab", "Composer", "NPM", "Postman", "Docker", "Docker CLI", "Redis"],
     },
   ];
 
   const projects = [
     {
-      title: "Sistem Presensi",
-      desc: "Sistem presensi untuk DPUPR Klaten, fitur mencakup absensi, cuti, perjalanan dinas dan izin.",
-      tech: ["Codeigniter 4", "Vue.js", "MySQL", "Vuetify"],
-      image: Sipekan,
+      title: "CraftiveNotify",
+      desc: "Sistem WhatsApp Gateway SaaS (Software as a Service) yang mengintegrasikan payment gateway Midtrans untuk transaksi layanan.",
+      tech: ["Laravel", "MariaDB", "Tailwind CSS", "Midtrans API", "SQLite", "Golang"],
+      image: Notify,
       type: "Full Stack",
-      link: "https://sipekan.klaten.go.id",
+      labelLink: "Kunjungi Website",
+      link: "https://notify.craftivelabs.com",
     },
     {
-      title: "Berkah Sinergi Nusantara",
-      desc: "Sistem Multi Level Marketing (MLM).",
+      title: "CraftiveSell",
+      desc: "Aplikasi Point of Sale (POS) cloud multi-tenant yang menerapkan notifikasi WhatsApp gateway sebagai media pengiriman nota transaksi (paperless).",
       tech: [
         "CodeIgniter 4",
-        "Bootstrap",
+        "Redis",
         "Vue.js",
-        "MySQL",
-        "Payment Gateway",
+        "MariaDB",
         "Whatsapp Gateway",
       ],
-      image: Bsn,
+      image: Sell,
       type: "Full Stack",
-      link: "https://berkahsinergi.com",
+      labelLink: "Kunjungi Website",
+      link: "https://sell.craftivelabs.com",
     },
     {
-      title: "RuangCat",
-      desc: "Aplikasi Computer Assisted Test (CAT) untuk tes CPNS dan PPPK.",
-      tech: ["Codeigniter 4", "Vue.js", "Tailwind CSS", "MySQL"],
-      image: RuangCat,
+      title: "MLM Operational Systems",
+      desc: "Pengembangan berbagai platform operasional bisnis Multi-Level Marketing. Berfokus pada stabilitas kalkulasi komisi, serta integrasi sistem notifikasi WhatsApp dan payment gateway pihak ketiga.",
+      tech: ["Codeigniter 4", "Vue.js", "MariaDB", "WA Gateway", "Xendit API", "Onebrick API"],
+      image: Mja,
       type: "Full Stack",
-      link: "https://ruangcat.id",
+      labelLink: "Kunjungi Representasi Website",
+      link: "https://mjaglobal.net",
     },
     {
-      title: "Booking Villa",
-      desc: "Aplikasi Booking Villa di Silancur.",
-      tech: ["Codeigniter 4", "Vue.js", "Bootstrap", "MySQL"],
-      image: Booking,
-      type: "Full Stack",
-      link: "https://booking.silancurhighland.com",
+      title: "Marketplace Affiliate System",
+      desc: "Pengembangan antarmuka (frontend) untuk sistem afiliasi yang memungkinkan pengguna memaksimalkan komisi dari transaksi pribadi pada marketplace seperti Shopee dan ShopeeFood.",
+      tech: [
+        "Vue.js",
+        "Frontend Development",
+      ],
+      image: Cashback,
+      type: "Frontend",
+      labelLink: "Kunjungi Website",
+      link: "https://cashback.craftivelabs.com",
     },
     {
-      title: "Ekinerja",
-      desc: "Aplikasi menghitung tunjangan ASN di kabupaten Seruyan.",
-      tech: ["Codeigniter 4", "Vue.js", "Bootstrap", "MySQL"],
-      image: Ekin,
-      type: "Full Stack",
-      link: "https://ekinerja.seruyankab.go.id",
-    },
-    {
-      title: "Sipresma",
-      desc: "Sistem Presensi Mahasiswa untuk Institut Pertanian STIPER Yogyakarta",
-      tech: ["Codeigniter 4", "Vue.js", "Bootstrap", "MySQL"],
+      title: "SIPRESMA",
+      desc: "Sistem Presensi Mahasiswa INSTIPER Yogyakarta untuk kegiatan perkuliahan yang terintegrasi dengan pemindai RFID. Dilengkapi otomatisasi rekap kehadiran ke Google Drive dan pengiriman notifikasi beserta dokumen melalui WhatsApp.",
+      tech: ["Codeigniter 4", "Vue.js", "MariaDB", "Bootstrap", "WA Gateway", "Google Drive API", "RFID Integration"],
       image: Sipresma,
       type: "Full Stack",
-      link: "https://instiper.my-appweb.com",
+      labelLink: "Sistem Internal Kampus",
+      link: "",
+    },
+  ];
+
+  const experiences = [
+    {
+      role: "Senior Web Developer",
+      period: "Jan 2025 - Sekarang",
+      company: "PT Esoftdream Solusi Bisnis",
+      tasks: [
+        "Merancang dan mengembangkan arsitektur sistem web fullstack yang efisien.",
+        "Melakukan review dan refactoring kode untuk optimasi performa.",
+        "Membimbing dan memberikan feedback teknis kepada junior developer.",
+      ],
+    },
+    {
+      role: "Intermediate Web Developer",
+      period: "Jan 2024 - Jan 2025",
+      company: "PT Esoftdream Solusi Bisnis",
+      tasks: [
+        "Berkolaborasi dengan QA untuk memastikan standar kebutuhan pengguna.",
+        "Menulis kode bersih, efisien, dan melakukan integrasi API eksternal.",
+      ],
+    },
+    {
+      role: "Junior Web Developer",
+      period: "Mei 2023 - Des 2023",
+      company: "Dinas Kominfo dan Persandian - Seruyan",
+      tasks: [
+        "Membangun dan mengembangkan sistem tunjangan ASN/PNS daerah.",
+        "Berkontribusi dalam integrasi fitur dan UI sistem website daerah.",
+      ],
+    },
+    {
+      role: "Junior Web Developer",
+      period: "Jan 2021 - Apr 2023",
+      company: "PT Esoftdream Solusi Bisnis",
+      tasks: [
+        "Membantu mengembangkan dan memelihara website serta mendukung implementasi teknis.",
+        "Berkolaborasi dengan tim desain dan pengembang untuk integrasi fitur dan UI responsif.",
+        "Melakukan testing dasar, perbaikan bug (error), serta menyusun dokumentasi teknis.",
+        "Terus belajar dan mengikuti perkembangan teknologi web terbaru.",
+      ],
     },
   ];
 
@@ -334,10 +377,7 @@ const Portfolio = () => {
               darkMode ? "text-slate-400" : "text-gray-600"
             }`}
           >
-            Web Developer dengan pengalaman hampir 5 tahun membangun sistem yang
-            scalable menggunakan{" "}
-            <span className="text-blue-500 font-semibold">PHP</span> &{" "}
-            <span className="text-emerald-500 font-semibold">JavaScript</span>.
+            Web Developer dengan pengalaman lebih dari 5 tahun membangun aplikasi web modern, scalable, dan berkinerja tinggi.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
@@ -381,11 +421,13 @@ const Portfolio = () => {
             </a>
           </div>
 
-          <div className="mt-16 flex justify-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+          <div className="mt-16 flex flex-wrap justify-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
             <span className="font-bold text-xl">Laravel</span>
             <span className="font-bold text-xl">CodeIgniter 4</span>
             <span className="font-bold text-xl">Vue.js</span>
             <span className="font-bold text-xl">Express.js</span>
+            <span className="font-bold text-xl">Golang</span>
+            <span className="font-bold text-xl">Docker</span>
           </div>
 
           <div
@@ -463,7 +505,16 @@ const Portfolio = () => {
                     <span className="text-green-400">"Vue.js"</span>,
                   </p>
                   <p className="pl-8">
-                    <span className="text-green-400">"Express.js"</span>
+                    <span className="text-green-400">"Express.js"</span>,
+                  </p>
+                  <p className="pl-8">
+                    <span className="text-green-400">"Golang"</span>,
+                  </p>
+                  <p className="pl-8">
+                    <span className="text-green-400">"Gin"</span>,
+                  </p>
+                  <p className="pl-8">
+                    <span className="text-green-400">"Docker"</span>
                   </p>
                   <p className="pl-4">];</p>
                   <p>&#125;</p>
@@ -483,7 +534,7 @@ const Portfolio = () => {
                 }`}
               >
                 Saya adalah seorang Web Developer profesional dengan pengalaman
-                hampir <strong className="text-emerald-500">5 tahun</strong>{" "}
+                lebih dari <strong className="text-emerald-500">5 tahun</strong>{" "}
                 dalam merancang, mengembangkan, dan mengoptimalkan sistem
                 berbasis web.
               </p>
@@ -496,14 +547,14 @@ const Portfolio = () => {
                 arsitektur, serta pengembangan sistem website yang berkualitas
                 tinggi, scalable, dan berperforma tinggi. Saya memiliki keahlian
                 dalam berbagai teknologi backend dan frontend seperti
-                Javascript, PHP, CSS, dan HTML, serta berpengalaman menggunakan
+                Javascript, PHP, Go, CSS, dan HTML, serta berpengalaman menggunakan
                 framework populer seperti{" "}
                 <strong className="text-blue-500">
-                  Express.js, CodeIgniter 4, Laravel
+                  Express.js, CodeIgniter 4, Laravel, Gin
                 </strong>{" "}
                 dan <strong className="text-emerald-500">Vue.js</strong>. Saya
                 juga terbiasa bekerja dalam tim lintas fungsi dan menerapkan
-                prinsip clean code, version control (Git), serta integrasi API
+                prinsip clean code, version control (Git), Docker, serta integrasi API
                 untuk mendukung kebutuhan bisnis digital secara efisien.
               </p>
             </div>
@@ -591,25 +642,40 @@ const Portfolio = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`group rounded-xl overflow-hidden border transition-all hover:shadow-2xl ${
+                className={`group rounded-xl overflow-hidden border flex flex-col transition-colors ${
                   darkMode
-                    ? "bg-slate-900 border-slate-700"
-                    : "bg-white border-gray-200"
+                    ? "bg-slate-800 border-slate-700 hover:border-blue-500"
+                    : "bg-white border-gray-200 hover:border-blue-400"
                 }`}
               >
-                <div className="relative overflow-hidden h-48">
-                  <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors z-10"></div>
+                <div
+                  className={`aspect-video w-full overflow-hidden relative border-b ${
+                    darkMode ? "border-slate-700" : "border-gray-200"
+                  }`}
+                >
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div
+                    className={`absolute inset-0 group-hover:bg-transparent transition-colors z-10 ${
+                      darkMode ? "bg-slate-900/10" : "bg-black/5"
+                    }`}
+                  ></div>
                   <div className="absolute top-4 right-4 z-20 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white">
                     {project.type}
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-blue-500 transition-colors">
+
+                <div className="p-6 flex-1">
+                  <h3
+                    className={`text-xl font-bold mb-2 transition-colors ${
+                      darkMode
+                        ? "text-white group-hover:text-blue-400"
+                        : "text-gray-900 group-hover:text-blue-600"
+                    }`}
+                  >
                     {project.title}
                   </h3>
                   <p
@@ -623,28 +689,46 @@ const Portfolio = () => {
                     {project.tech.map((t, i) => (
                       <span
                         key={i}
-                        className={`text-xs px-2 py-1 rounded ${
+                        className={`text-xs font-medium px-2 py-1 rounded ${
                           darkMode
-                            ? "bg-slate-800 text-blue-400"
-                            : "bg-blue-50 text-blue-700"
+                            ? "bg-slate-900 text-slate-300"
+                            : "bg-gray-100 text-gray-700"
                         }`}
                       >
                         {t}
                       </span>
                     ))}
                   </div>
+                </div>
 
-                  {/* Tombol Akses Sistem (GitHub Button Removed) */}
-                  <div className="flex gap-4">
+                <div
+                  className={`px-6 py-4 border-t ${
+                    darkMode
+                      ? "bg-slate-900/50 border-slate-700"
+                      : "bg-gray-50 border-gray-200"
+                  }`}
+                >
+                  {project.link ? (
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 hover:text-blue-100 text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
+                      className={`text-sm font-medium inline-flex items-center ${
+                        darkMode
+                          ? "text-blue-400 hover:text-blue-300"
+                          : "text-blue-600 hover:text-blue-700"
+                      }`}
                     >
-                      Akses Sistem <ExternalLink size={16} />
+                      {project.labelLink} &rarr;
                     </a>
-                  </div>
+                  ) : (
+                    <div className="flex items-center justify-between gap-2 text-gray-500">
+                    <span class="text-sm text-gray-500 font-medium">
+                            Sistem Internal Kampus
+                        </span>
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -658,6 +742,109 @@ const Portfolio = () => {
             >
               Lihat GitHub <Github size={18} />
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section
+        id="experience"
+        className={`py-20 ${darkMode ? "bg-slate-800/50" : "bg-gray-100"}`}
+      >
+        <div className="w-full mx-auto px-6 lg:px-16">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Pengalaman Kerja
+              </h2>
+              <p className={darkMode ? "text-slate-400" : "text-gray-600"}>
+                Perjalanan karir dan pengalaman profesional saya.
+              </p>
+            </div>
+          </div>
+
+          <div
+            className={`space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent ${
+              darkMode ? "before:via-slate-600" : "before:via-gray-300"
+            } before:to-transparent`}
+          >
+            {experiences.map((exp, index) => (
+              <div
+                key={index}
+                className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
+              >
+                {/* Timeline Icon */}
+                <div
+                  className={`flex items-center justify-center w-10 h-10 rounded-full border-4 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 ${
+                    darkMode ? "border-slate-900" : "border-gray-50"
+                  } ${
+                    index === 0
+                      ? "bg-blue-500 text-white"
+                      : "bg-slate-500 text-white"
+                  }`}
+                >
+                  {index === 0 && (
+                    <svg
+                      className="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  )}
+                </div>
+
+                {/* Content Card */}
+                <div
+                  className={`w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border shadow-md transition-colors ${
+                    darkMode
+                      ? "bg-slate-800 border-slate-700"
+                      : "bg-white border-gray-200"
+                  }`}
+                >
+                  <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-2 gap-1 xl:gap-0">
+                    <h3
+                      className={`font-bold text-lg ${
+                        darkMode ? "text-white" : "text-gray-900"
+                      }`}
+                    >
+                      {exp.role}
+                    </h3>
+                    <span
+                      className={`text-sm font-medium ${
+                        index === 0
+                          ? "text-blue-500"
+                          : darkMode
+                          ? "text-slate-400"
+                          : "text-gray-500"
+                      }`}
+                    >
+                      {exp.period}
+                    </span>
+                  </div>
+                  <h4
+                    className={`text-md mb-4 ${
+                      darkMode ? "text-slate-300" : "text-gray-700"
+                    }`}
+                  >
+                    {exp.company}
+                  </h4>
+                  <ul
+                    className={`text-sm space-y-2 list-disc list-inside ${
+                      darkMode ? "text-slate-400" : "text-gray-600"
+                    }`}
+                  >
+                    {exp.tasks.map((task, tIndex) => (
+                      <li key={tIndex}>{task}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -742,7 +929,7 @@ const Portfolio = () => {
                 darkMode ? "text-slate-500" : "text-gray-500"
               }`}
             >
-              Web Developer • PHP & JS
+              Web Developer | Yogyakarta, Indonesia
             </p>
           </div>
           <div
