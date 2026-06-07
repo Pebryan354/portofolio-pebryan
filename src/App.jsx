@@ -28,6 +28,7 @@ import CVFile from "./assets/pebryan_ibrahim.pdf";
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(true);
+  const [lang, setLang] = useState('id');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -77,14 +78,167 @@ const Portfolio = () => {
     setDarkMode(!darkMode);
   };
 
-  const navLinks = [
-    { name: "Beranda", id: "home" },
-    { name: "Tentang", id: "about" },
-    { name: "Keahlian", id: "skills" },
-    { name: "Proyek", id: "projects" },
-    { name: "Pengalaman", id: "experience" },
-    { name: "Kontak", id: "contact" },
-  ];
+  const translations = {
+    id: {
+      nav: [
+        { name: "Beranda", id: "home" },
+        { name: "Tentang", id: "about" },
+        { name: "Keahlian", id: "skills" },
+        { name: "Proyek", id: "projects" },
+        { name: "Pengalaman", id: "experience" },
+        { name: "Kontak", id: "contact" },
+      ],
+      greeting: "Halo, Saya",
+      subtext: "Web Developer dengan pengalaman lebih dari 5 tahun membangun aplikasi web modern, scalable, dan berkinerja tinggi.",
+      portfolioBtn: "Lihat Portofolio",
+      contactBtn: "Hubungi Saya",
+      aboutTitle: "Tentang Saya",
+      aboutDesc1: "Saya adalah seorang Web Developer profesional dengan pengalaman lebih dari <strong class=\"text-emerald-500\">5 tahun</strong> dalam merancang, mengembangkan, dan mengoptimalkan sistem berbasis web.",
+      aboutDesc2: "Saya bertanggung jawab dalam analisis kebutuhan, perancangan arsitektur, serta pengembangan sistem website yang berkualitas tinggi, scalable, dan berperforma tinggi. Saya memiliki keahlian dalam berbagai teknologi backend dan frontend seperti Javascript, PHP, Go, CSS, dan HTML, serta berpengalaman menggunakan framework populer seperti <strong class=\"text-blue-500\">Express.js, CodeIgniter 4, Laravel, Gin</strong> dan <strong class=\"text-emerald-500\">Vue.js</strong>. Saya juga terbiasa bekerja dalam tim lintas fungsi dan menerapkan prinsip clean code, version control (Git), Docker, serta integrasi API untuk mendukung kebutuhan bisnis digital secara efisien.",
+      skillsTitle: "Keahlian & Teknologi",
+      skillsDesc: "Daftar bahasa pemrograman dan alat yang saya gunakan sehari-hari untuk membangun aplikasi.",
+      projectsTitle: "Portofolio",
+      projectsDesc: "Beberapa karya terbaik yang pernah saya kerjakan.",
+      projectDescs: [
+        "Sistem WhatsApp Gateway SaaS (Software as a Service) yang mengintegrasikan payment gateway Midtrans untuk transaksi layanan.",
+        "Aplikasi Point of Sale (POS) cloud multi-tenant yang menerapkan notifikasi WhatsApp gateway sebagai media pengiriman nota transaksi (paperless).",
+        "Pengembangan berbagai platform operasional bisnis Multi-Level Marketing. Berfokus pada stabilitas kalkulasi komisi, serta integrasi sistem notifikasi WhatsApp dan payment gateway pihak ketiga.",
+        "Pengembangan antarmuka (frontend) untuk sistem afiliasi yang memungkinkan pengguna memaksimalkan komisi dari transaksi pribadi pada marketplace seperti Shopee dan ShopeeFood.",
+        "Sistem Presensi Mahasiswa INSTIPER Yogyakarta untuk kegiatan perkuliahan yang terintegrasi dengan pemindai RFID. Dilengkapi otomatisasi rekap kehadiran ke Google Drive dan pengiriman notifikasi beserta dokumen melalui WhatsApp."
+      ],
+      projectLabelLink: [
+        "Kunjungi Website",
+        "Kunjungi Website",
+        "Kunjungi Representasi Website",
+        "Kunjungi Website",
+        "Sistem Internal Kampus"
+      ],
+      experienceTitle: "Pengalaman Kerja",
+      contactTitle: "Kontak Saya",
+      experienceData: [
+        {
+          role: "Senior Web Developer",
+          period: "Jan 2025 - Sekarang",
+          company: "PT Esoftdream Solusi Bisnis",
+          tasks: [
+            "Merancang dan mengembangkan arsitektur sistem web fullstack yang efisien.",
+            "Melakukan review dan refactoring kode untuk optimasi performa.",
+            "Membimbing dan memberikan feedback teknis kepada junior developer."
+          ]
+        },
+        {
+          role: "Intermediate Web Developer",
+          period: "Jan 2024 - Jan 2025",
+          company: "PT Esoftdream Solusi Bisnis",
+          tasks: [
+            "Berkolaborasi dengan QA untuk memastikan standar kebutuhan pengguna.",
+            "Menulis kode bersih, efisien, dan melakukan integrasi API eksternal."
+          ]
+        },
+        {
+          role: "Junior Web Developer",
+          period: "May 2023 - Dec 2023",
+          company: "Dinas Kominfo dan Persandian - Seruyan",
+          tasks: [
+            "Membangun dan mengembangkan sistem tunjangan ASN/PNS daerah.",
+            "Berkontribusi dalam integrasi fitur dan UI sistem website daerah."
+          ]
+        },
+        {
+          role: "Junior Web Developer",
+          period: "Jan 2021 - Apr 2023",
+          company: "PT Esoftdream Solusi Bisnis",
+          tasks: [
+            "Membantu mengembangkan dan memelihara website serta mendukung implementasi teknis.",
+            "Berkolaborasi dengan tim desain dan pengembang untuk integrasi fitur dan UI responsif.",
+            "Melakukan testing dasar, perbaikan bug (error), serta menyusun dokumentasi teknis.",
+            "Terus belajar dan mengikuti perkembangan teknologi web terbaru."
+          ]
+        }
+      ]
+    },
+    en: {
+      nav: [
+        { name: "Home", id: "home" },
+        { name: "About", id: "about" },
+        { name: "Skills", id: "skills" },
+        { name: "Projects", id: "projects" },
+        { name: "Experience", id: "experience" },
+        { name: "Contact", id: "contact" },
+      ],
+      greeting: "Hello, I am",
+      subtext: "Web Developer with over 5 years of experience building modern, scalable, high-performance web applications.",
+      portfolioBtn: "View Portfolio",
+      contactBtn: "Contact Me",
+      aboutTitle: "About Me",
+      aboutDesc1: "I am a professional Web Developer with over <strong class=\"text-emerald-500\">5 years</strong> of experience designing, developing, and optimizing web-based systems.",
+      aboutDesc2: "I am responsible for requirement analysis, architecture design, and developing high-quality, scalable, high-performance websites. I have expertise in various backend and frontend technologies such as Javascript, PHP, Go, CSS, and HTML, and I have experience using popular frameworks like <strong class=\"text-blue-500\">Express.js, CodeIgniter 4, Laravel, Gin</strong> and <strong class=\"text-emerald-500\">Vue.js</strong>. I also work well in cross‑functional teams and apply clean code principles, version control (Git), Docker, and API integration to efficiently support digital business needs.",
+      skillsTitle: "Skills & Technologies",
+      skillsDesc: "List of programming languages and tools I use daily to build applications.",
+      projectsTitle: "Portfolio",
+      projectsDesc: "Some of my best work.",
+      projectDescs: [
+        "WhatsApp Gateway SaaS system integrating Midtrans payment gateway for service transactions.",
+        "Cloud multi-tenant Point of Sale (POS) application using WhatsApp gateway for paperless transaction receipts.",
+        "Development of various Multi-Level Marketing operational platforms focusing on commission calculation stability and integration with WhatsApp notifications and third‑party payment gateways.",
+        "Frontend interface for an affiliate system enabling users to maximize commissions from personal transactions on marketplaces like Shopee and ShopeeFood.",
+        "Student attendance system for INSTIPER Yogyakarta integrated with RFID scanner, automated attendance recap to Google Drive, and WhatsApp notifications with documents."
+      ],
+      projectLabelLink: [
+        "Visit Website",
+        "Visit Website",
+        "Visit Representative Website",
+        "Visit Website",
+        "Internal Campus System"
+      ],
+      experienceTitle: "Work Experience",
+      contactTitle: "Contact Me",
+      experienceData: [
+        {
+          role: "Senior Web Developer",
+          period: "Jan 2025 - Present",
+          company: "PT Esoftdream Solusi Bisnis",
+          tasks: [
+            "Designed and developed efficient full‑stack web system architecture.",
+            "Conducted code reviews and refactored code for performance optimization.",
+            "Mentored junior developers and provided technical feedback."
+          ]
+        },
+        {
+          role: "Intermediate Web Developer",
+          period: "Jan 2024 - Jan 2025",
+          company: "PT Esoftdream Solusi Bisnis",
+          tasks: [
+            "Collaborated with QA to ensure user requirement standards.",
+            "Wrote clean, efficient code and integrated external APIs."
+          ]
+        },
+        {
+          role: "Junior Web Developer",
+          period: "May 2023 - Dec 2023",
+          company: "Department of Communications and Information Technology and Cryptography - Seruyan",
+          tasks: [
+            "Developed and enhanced the regional civil servant benefit system.",
+            "Contributed to feature integration and UI of the regional website."
+          ]
+        },
+        {
+          role: "Junior Web Developer",
+          period: "Jan 2021 - Apr 2023",
+          company: "PT Esoftdream Solusi Bisnis",
+          tasks: [
+            "Assisted in developing and maintaining websites and supported technical implementation.",
+            "Collaborated with design and development teams for responsive feature and UI integration.",
+            "Performed basic testing, bug fixing, and prepared technical documentation.",
+            "Continuously learned and kept up with the latest web technologies."
+          ]
+        }
+      ]
+    }
+  };
+
+
+  const navLinks = translations[lang].nav;
 
   const skills = [
     {
@@ -176,49 +330,6 @@ const Portfolio = () => {
       link: "",
     },
   ];
-
-  const experiences = [
-    {
-      role: "Senior Web Developer",
-      period: "Jan 2025 - Sekarang",
-      company: "PT Esoftdream Solusi Bisnis",
-      tasks: [
-        "Merancang dan mengembangkan arsitektur sistem web fullstack yang efisien.",
-        "Melakukan review dan refactoring kode untuk optimasi performa.",
-        "Membimbing dan memberikan feedback teknis kepada junior developer.",
-      ],
-    },
-    {
-      role: "Intermediate Web Developer",
-      period: "Jan 2024 - Jan 2025",
-      company: "PT Esoftdream Solusi Bisnis",
-      tasks: [
-        "Berkolaborasi dengan QA untuk memastikan standar kebutuhan pengguna.",
-        "Menulis kode bersih, efisien, dan melakukan integrasi API eksternal.",
-      ],
-    },
-    {
-      role: "Junior Web Developer",
-      period: "Mei 2023 - Des 2023",
-      company: "Dinas Kominfo dan Persandian - Seruyan",
-      tasks: [
-        "Membangun dan mengembangkan sistem tunjangan ASN/PNS daerah.",
-        "Berkontribusi dalam integrasi fitur dan UI sistem website daerah.",
-      ],
-    },
-    {
-      role: "Junior Web Developer",
-      period: "Jan 2021 - Apr 2023",
-      company: "PT Esoftdream Solusi Bisnis",
-      tasks: [
-        "Membantu mengembangkan dan memelihara website serta mendukung implementasi teknis.",
-        "Berkolaborasi dengan tim desain dan pengembang untuk integrasi fitur dan UI responsif.",
-        "Melakukan testing dasar, perbaikan bug (error), serta menyusun dokumentasi teknis.",
-        "Terus belajar dan mengikuti perkembangan teknologi web terbaru.",
-      ],
-    },
-  ];
-
   return (
     <div
       className={`min-h-screen transition-colors duration-300 ${
@@ -263,16 +374,31 @@ const Portfolio = () => {
                     {link.name}
                   </a>
                 ))}
-                <button
-                  onClick={toggleTheme}
-                  className={`p-2 rounded-full transition-colors ${
-                    darkMode
-                      ? "hover:bg-slate-800 bg-slate-900/90 text-yellow-400"
-                      : "hover:bg-gray-100 bg-slate-100 text-slate-600"
-                  }`}
-                >
-                  {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={toggleTheme}
+                    className={`p-2 rounded-full transition-colors ${
+                      darkMode
+                        ? "hover:bg-slate-800 bg-slate-900/90 text-yellow-400"
+                        : "hover:bg-gray-100 bg-slate-100 text-slate-600"
+                    }`}
+                  >
+                    {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+                  </button>
+                  <div className="flex items-center">
+                  <div
+                    className={`relative w-14 h-8 rounded-full transition-colors cursor-pointer ${darkMode ? 'bg-gray-600' : 'bg-gray-300'} `}
+                    onClick={() => setLang(lang === 'id' ? 'en' : 'id')}
+                    title="Toggle Language"
+                  >
+                    <div
+                      className={`absolute top-0.5 left-0.5 w-7 h-7 bg-white rounded-full flex items-center justify-center transition-transform duration-300 ${lang === 'en' ? 'translate-x-6' : ''}`}
+                    >
+                      {lang === 'id' ? '🇮🇩' : '🇬🇧'}
+                    </div>
+                  </div>
+                </div>
+                </div>
               </div>
             </div>
 
@@ -367,7 +493,7 @@ const Portfolio = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
-            Halo, Saya{" "}
+            {translations[lang].greeting}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
               Pebryan Ibrahim
             </span>
@@ -377,7 +503,7 @@ const Portfolio = () => {
               darkMode ? "text-slate-400" : "text-gray-600"
             }`}
           >
-            Web Developer dengan pengalaman lebih dari 5 tahun membangun aplikasi web modern, scalable, dan berkinerja tinggi.
+            {translations[lang].subtext}
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
@@ -387,7 +513,7 @@ const Portfolio = () => {
               className="px-8 py-3.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white hover:text-blue-50 font-semibold transition-all shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2"
             >
               <Briefcase size={20} />
-              Lihat Portofolio
+              {translations[lang].portfolioBtn}
             </a>
             <a
               href="#contact"
@@ -399,7 +525,7 @@ const Portfolio = () => {
               } flex items-center justify-center gap-2`}
             >
               <Mail size={20} />
-              Hubungi Saya
+              {translations[lang].contactBtn}
             </a>
 
             <a
@@ -527,36 +653,19 @@ const Portfolio = () => {
             </div>
 
             <div className="mt-10 lg:mt-0">
-              <h2 className="text-3xl font-bold mb-6">Tentang Saya</h2>
+              <h2 className="text-3xl font-bold mb-6">{translations[lang].aboutTitle}</h2>
               <p
                 className={`text-lg mb-6 leading-relaxed ${
                   darkMode ? "text-slate-300" : "text-gray-600"
                 }`}
-              >
-                Saya adalah seorang Web Developer profesional dengan pengalaman
-                lebih dari <strong className="text-emerald-500">5 tahun</strong>{" "}
-                dalam merancang, mengembangkan, dan mengoptimalkan sistem
-                berbasis web.
-              </p>
+                dangerouslySetInnerHTML={{ __html: translations[lang].aboutDesc1 }}
+              ></p>
               <p
                 className={`text-lg mb-6 leading-relaxed ${
                   darkMode ? "text-slate-300" : "text-gray-600"
                 }`}
-              >
-                Saya bertanggung jawab dalam analisis kebutuhan, perancangan
-                arsitektur, serta pengembangan sistem website yang berkualitas
-                tinggi, scalable, dan berperforma tinggi. Saya memiliki keahlian
-                dalam berbagai teknologi backend dan frontend seperti
-                Javascript, PHP, Go, CSS, dan HTML, serta berpengalaman menggunakan
-                framework populer seperti{" "}
-                <strong className="text-blue-500">
-                  Express.js, CodeIgniter 4, Laravel, Gin
-                </strong>{" "}
-                dan <strong className="text-emerald-500">Vue.js</strong>. Saya
-                juga terbiasa bekerja dalam tim lintas fungsi dan menerapkan
-                prinsip clean code, version control (Git), Docker, serta integrasi API
-                untuk mendukung kebutuhan bisnis digital secara efisien.
-              </p>
+                dangerouslySetInnerHTML={{ __html: translations[lang].aboutDesc2 }}
+              ></p>
             </div>
           </div>
         </div>
@@ -567,15 +676,14 @@ const Portfolio = () => {
         <div className="w-full mx-auto px-6 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Keahlian & Teknologi
+              {translations[lang].skillsTitle}
             </h2>
             <p
               className={`max-w-2xl mx-auto ${
                 darkMode ? "text-slate-400" : "text-gray-600"
               }`}
             >
-              Daftar bahasa pemrograman dan alat yang saya gunakan sehari-hari
-              untuk membangun aplikasi.
+              {translations[lang].skillsDesc}
             </p>
           </div>
 
@@ -622,10 +730,10 @@ const Portfolio = () => {
           <div className="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Portofolio
+                {translations[lang].projectsTitle}
               </h2>
               <p className={darkMode ? "text-slate-400" : "text-gray-600"}>
-                Beberapa karya terbaik yang pernah saya kerjakan.
+                {translations[lang].projectsDesc}
               </p>
             </div>
             {/* Link Github di Header section tetap ada sebagai referensi sosial, tapi tombol di kartu dihapus */}
@@ -634,7 +742,7 @@ const Portfolio = () => {
               target="_blank"
               className="hidden md:flex items-center gap-2 text-blue-500 font-medium hover:text-blue-400 transition-colors mt-4 md:mt-0"
             >
-              Lihat GitHub <Github size={18} />
+               {lang === 'id' ? 'Lihat GitHub' : 'View GitHub'} <Github size={18} />
             </a>
           </div>
 
@@ -683,7 +791,7 @@ const Portfolio = () => {
                       darkMode ? "text-slate-400" : "text-gray-600"
                     }`}
                   >
-                    {project.desc}
+                    {translations[lang].projectDescs[index]}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((t, i) => (
@@ -719,14 +827,14 @@ const Portfolio = () => {
                           : "text-blue-600 hover:text-blue-700"
                       }`}
                     >
-                      {project.labelLink} &rarr;
+                      {translations[lang].projectLabelLink[index]} &rarr;
                     </a>
                   ) : (
                     <div className="flex items-center justify-between gap-2 text-gray-500">
-                    <span class="text-sm text-gray-500 font-medium">
-                            Sistem Internal Kampus
+                    <span className="text-sm text-gray-500 font-medium">
+                      {lang == 'id' ? 'Sistem Internal Kampus' : 'Internal Campus System'}
                         </span>
-                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                     </div>
                   )}
                 </div>
@@ -740,7 +848,7 @@ const Portfolio = () => {
               target="_blank"
               className="inline-flex items-center gap-2 text-blue-500 font-medium"
             >
-              Lihat GitHub <Github size={18} />
+              {lang === 'id' ? 'Lihat GitHub' : 'View GitHub'} <Github size={18} />
             </a>
           </div>
         </div>
@@ -755,10 +863,12 @@ const Portfolio = () => {
           <div className="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Pengalaman Kerja
+                {translations[lang].experienceTitle}
               </h2>
               <p className={darkMode ? "text-slate-400" : "text-gray-600"}>
-                Perjalanan karir dan pengalaman profesional saya.
+                {lang === "id"
+                  ? "Perjalanan karir dan pengalaman profesional saya."
+                  : "My career journey and professional experiences."}
               </p>
             </div>
           </div>
@@ -768,7 +878,7 @@ const Portfolio = () => {
               darkMode ? "before:via-slate-600" : "before:via-gray-300"
             } before:to-transparent`}
           >
-            {experiences.map((exp, index) => (
+            {translations[lang].experienceData.map((exp, index) => (
               <div
                 key={index}
                 className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
@@ -812,7 +922,7 @@ const Portfolio = () => {
                         darkMode ? "text-white" : "text-gray-900"
                       }`}
                     >
-                      {exp.role}
+                      {exp.role} 
                     </h3>
                     <span
                       className={`text-sm font-medium ${
@@ -867,15 +977,17 @@ const Portfolio = () => {
                 darkMode ? "text-white" : "text-white"
               }`}
             >
-              Siap Memulai Proyek Berikutnya?
+              {translations[lang].contactTitle}
             </h2>
             <p
               className={`text-lg mb-8 max-w-2xl mx-auto ${
                 darkMode ? "text-slate-400" : "text-blue-100"
               }`}
             >
-              Saya selalu terbuka untuk mendiskusikan proyek pengembangan web
-              baru, konsultasi teknis, atau peluang kolaborasi.
+              {lang === "id"
+                ? "Saya selalu terbuka untuk mendiskusikan proyek pengembangan web baru, konsultasi teknis, atau peluang kolaborasi."
+                : "I'm always open to discussing new web development projects, technical consultations, or collaboration opportunities."}
+              <br />
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-6 items-center">
@@ -888,7 +1000,7 @@ const Portfolio = () => {
                 }`}
               >
                 <Mail size={20} />
-                Kirim Email
+                {lang === "id" ? "Kirim Email" : "Send Email"}
               </a>
               <a
                 href="https://www.linkedin.com/in/pebryan-ibrahim"
