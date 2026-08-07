@@ -17,6 +17,7 @@ import {
   ExternalLink,
   Download,
   Smartphone,
+  Gitlab,
 } from "lucide-react";
 
 import Paycraft from "./assets/paycraft.png";
@@ -770,14 +771,25 @@ const Portfolio = () => {
                 {translations[lang].projectsDesc}
               </p>
             </div>
-            {/* Link Github di Header section tetap ada sebagai referensi sosial, tapi tombol di kartu dihapus */}
-            <a
-              href="https://github.com/pebryan354"
-              target="_blank"
-              className="hidden md:flex items-center gap-2 text-blue-500 font-medium hover:text-blue-400 transition-colors mt-4 md:mt-0"
-            >
-               {lang === 'id' ? 'Lihat GitHub' : 'View GitHub'} <Github size={18} />
-            </a>
+            <div className="hidden md:flex items-center gap-4 mt-4 md:mt-0">
+              <a
+                href="https://github.com/pebryan354"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-blue-500 font-medium hover:text-blue-400 transition-colors"
+              >
+                GitHub <Github size={18} />
+              </a>
+              <span className={darkMode ? "text-slate-700" : "text-gray-300"}>|</span>
+              <a
+                href="https://git.esoftdream.net/pebryan354"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-orange-500 font-medium hover:text-orange-400 transition-colors"
+              >
+                GitLab <Gitlab size={18} />
+              </a>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -900,13 +912,23 @@ const Portfolio = () => {
             ))}
           </div>
 
-          <div className="mt-8 text-center md:hidden">
+          <div className="mt-8 flex justify-center items-center gap-4 md:hidden">
             <a
               href="https://github.com/pebryan354"
               target="_blank"
-              className="inline-flex items-center gap-2 text-blue-500 font-medium"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-blue-500 font-medium"
             >
-              {lang === 'id' ? 'Lihat GitHub' : 'View GitHub'} <Github size={18} />
+              GitHub <Github size={18} />
+            </a>
+            <span className={darkMode ? "text-slate-700" : "text-gray-300"}>|</span>
+            <a
+              href="https://git.esoftdream.net/pebryan354"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-orange-500 font-medium"
+            >
+              GitLab <Gitlab size={18} />
             </a>
           </div>
         </div>
@@ -1048,29 +1070,56 @@ const Portfolio = () => {
               <br />
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-6 items-center">
+            <div className="flex flex-wrap justify-center gap-4 items-center">
               <a
                 href="mailto:pebryanibrahim98@gmail.com"
-                className={`flex items-center gap-3 px-6 py-3 rounded-xl font-semibold transition-transform hover:-translate-y-1 ${
+                className={`flex items-center gap-2.5 px-5 py-3 rounded-xl font-semibold transition-transform hover:-translate-y-1 ${
                   darkMode
                     ? "bg-white text-slate-900 hover:bg-slate-200"
                     : "bg-white text-blue-600 hover:bg-gray-100 shadow-lg"
                 }`}
               >
-                <Mail size={20} />
+                <Mail size={18} />
                 {lang === "id" ? "Kirim Email" : "Send Email"}
               </a>
               <a
                 href="https://www.linkedin.com/in/pebryan-ibrahim"
                 target="_blank"
-                className={`flex items-center gap-3 px-6 py-3 rounded-xl font-semibold border transition-all ${
+                rel="noopener noreferrer"
+                className={`flex items-center gap-2.5 px-5 py-3 rounded-xl font-semibold border transition-all hover:-translate-y-0.5 ${
                   darkMode
                     ? "border-slate-600 hover:bg-slate-800 text-white"
                     : "border-blue-400 hover:bg-blue-600 hover:text-blue-100 hover:border-blue-600 text-white"
                 }`}
               >
-                <Linkedin size={20} />
+                <Linkedin size={18} />
                 LinkedIn
+              </a>
+              <a
+                href="https://github.com/pebryan354"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center gap-2.5 px-5 py-3 rounded-xl font-semibold border transition-all hover:-translate-y-0.5 ${
+                  darkMode
+                    ? "border-slate-600 hover:bg-slate-800 text-white"
+                    : "border-blue-400 hover:bg-blue-600 hover:text-blue-100 hover:border-blue-600 text-white"
+                }`}
+              >
+                <Github size={18} />
+                GitHub
+              </a>
+              <a
+                href="https://git.esoftdream.net/pebryan354"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center gap-2.5 px-5 py-3 rounded-xl font-semibold border transition-all hover:-translate-y-0.5 ${
+                  darkMode
+                    ? "border-slate-600 hover:bg-slate-800 text-white"
+                    : "border-blue-400 hover:bg-blue-600 hover:text-blue-100 hover:border-blue-600 text-white"
+                }`}
+              >
+                <Gitlab size={18} />
+                GitLab
               </a>
             </div>
           </div>
@@ -1102,6 +1151,60 @@ const Portfolio = () => {
               Web Developer | Yogyakarta, Indonesia
             </p>
           </div>
+
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/pebryan354"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`p-2 rounded-full transition-colors ${
+                darkMode
+                  ? "text-slate-400 hover:text-white hover:bg-slate-800"
+                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"
+              }`}
+              title="GitHub Profile"
+            >
+              <Github size={20} />
+            </a>
+            <a
+              href="https://git.esoftdream.net/pebryan354"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`p-2 rounded-full transition-colors ${
+                darkMode
+                  ? "text-slate-400 hover:text-orange-400 hover:bg-slate-800"
+                  : "text-gray-600 hover:text-orange-600 hover:bg-gray-200"
+              }`}
+              title="GitLab Esoftdream Profile"
+            >
+              <Gitlab size={20} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/pebryan-ibrahim"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`p-2 rounded-full transition-colors ${
+                darkMode
+                  ? "text-slate-400 hover:text-blue-400 hover:bg-slate-800"
+                  : "text-gray-600 hover:text-blue-600 hover:bg-gray-200"
+              }`}
+              title="LinkedIn Profile"
+            >
+              <Linkedin size={20} />
+            </a>
+            <a
+              href="mailto:pebryanibrahim98@gmail.com"
+              className={`p-2 rounded-full transition-colors ${
+                darkMode
+                  ? "text-slate-400 hover:text-emerald-400 hover:bg-slate-800"
+                  : "text-gray-600 hover:text-emerald-600 hover:bg-gray-200"
+              }`}
+              title="Email Contact"
+            >
+              <Mail size={20} />
+            </a>
+          </div>
+
           <div
             className={`text-sm ${
               darkMode ? "text-slate-600" : "text-gray-400"
