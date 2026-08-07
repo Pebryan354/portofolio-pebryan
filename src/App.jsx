@@ -16,8 +16,11 @@ import {
   Briefcase,
   ExternalLink,
   Download,
+  Smartphone,
 } from "lucide-react";
 
+import Paycraft from "./assets/paycraft.png";
+import Syncraft from "./assets/syncraft.png";
 import Notify from "./assets/notify.png";
 import Sell from "./assets/sell.png";
 import Mja from "./assets/mja.png";
@@ -100,13 +103,17 @@ const Portfolio = () => {
       projectsTitle: "Portofolio",
       projectsDesc: "Beberapa karya terbaik yang pernah saya kerjakan.",
       projectDescs: [
+        "Middleware Payment Gateway Proxy & Sub-Merchant Management API-First yang dibangun menggunakan Golang, Vue.js, MariaDB, dan Redis.",
+        "Platform WhatsApp Gateway API modern yang dirancang khusus untuk pengembang (developer-first), dibangun dengan arsitektur mikro berkinerja tinggi menggunakan Golang dan Nuxt.js.",
         "Sistem WhatsApp Gateway SaaS (Software as a Service) yang mengintegrasikan payment gateway Midtrans untuk transaksi layanan.",
-        "Aplikasi Point of Sale (POS) cloud multi-tenant yang menerapkan notifikasi WhatsApp gateway sebagai media pengiriman nota transaksi (paperless).",
+        "Aplikasi Point of Sale (POS) cloud multi-tenant yang telah dirilis di Google Play Store (PWA/TWA via Bubblewrap), menerapkan notifikasi WhatsApp gateway sebagai media pengiriman nota transaksi (paperless).",
         "Pengembangan berbagai platform operasional bisnis Multi-Level Marketing. Berfokus pada stabilitas kalkulasi komisi, serta integrasi sistem notifikasi WhatsApp dan payment gateway pihak ketiga.",
-        "Pengembangan antarmuka (frontend) untuk sistem afiliasi yang memungkinkan pengguna memaksimalkan komisi dari transaksi pribadi pada marketplace seperti Shopee dan ShopeeFood.",
+        "Pengembangan antarmuka (frontend) untuk sistem afiliasi yang memungkinkan pengguna memaksimalkan komisi dari transaksi pribadi pada marketplace seperti Shopee, ShopeeFood dan TikTok Shop.",
         "Sistem Presensi Mahasiswa INSTIPER Yogyakarta untuk kegiatan perkuliahan yang terintegrasi dengan pemindai RFID. Dilengkapi otomatisasi rekap kehadiran ke Google Drive dan pengiriman notifikasi beserta dokumen melalui WhatsApp."
       ],
       projectLabelLink: [
+        "Sistem B2B Internal (WIP)",
+        "Kunjungi Website",
         "Kunjungi Website",
         "Kunjungi Website",
         "Kunjungi Representasi Website",
@@ -138,7 +145,7 @@ const Portfolio = () => {
         {
           role: "Junior Web Developer",
           period: "May 2023 - Dec 2023",
-          company: "Dinas Kominfo dan Persandian - Seruyan",
+          company: "Dinas Kominfo dan Persandian - Kab. Seruyan",
           tasks: [
             "Membangun dan mengembangkan sistem tunjangan ASN/PNS daerah.",
             "Berkontribusi dalam integrasi fitur dan UI sistem website daerah."
@@ -178,13 +185,17 @@ const Portfolio = () => {
       projectsTitle: "Portfolio",
       projectsDesc: "Some of my best work.",
       projectDescs: [
+        "API-First Payment Gateway Proxy & Sub-Merchant Management Middleware built with Golang, Vue.js, MariaDB, and Redis.",
+        "Modern developer-first WhatsApp Gateway API platform built with high-performance micro-architecture using Golang and Nuxt.js.",
         "WhatsApp Gateway SaaS system integrating Midtrans payment gateway for service transactions.",
-        "Cloud multi-tenant Point of Sale (POS) application using WhatsApp gateway for paperless transaction receipts.",
+        "Cloud multi-tenant Point of Sale (POS) application published on Google Play Store (PWA/TWA via Bubblewrap), utilizing WhatsApp gateway notifications for paperless transaction receipts.",
         "Development of various Multi-Level Marketing operational platforms focusing on commission calculation stability and integration with WhatsApp notifications and third‑party payment gateways.",
-        "Frontend interface for an affiliate system enabling users to maximize commissions from personal transactions on marketplaces like Shopee and ShopeeFood.",
+        "Frontend interface for an affiliate system enabling users to maximize commissions from personal transactions on marketplaces like Shopee, ShopeeFood and TikTok Shop.",
         "Student attendance system for INSTIPER Yogyakarta integrated with RFID scanner, automated attendance recap to Google Drive, and WhatsApp notifications with documents."
       ],
       projectLabelLink: [
+        "Internal B2B System (WIP)",
+        "Visit Website",
         "Visit Website",
         "Visit Website",
         "Visit Representative Website",
@@ -260,6 +271,7 @@ const Portfolio = () => {
       icon: <Layout className="w-8 h-8 text-emerald-500" />,
       items: [
         "Vue.js",
+        "Nuxt.js",
         "Vuetify",
         "Tailwind CSS",
         "HTML5/CSS3",
@@ -276,6 +288,25 @@ const Portfolio = () => {
 
   const projects = [
     {
+      title: "Paycraft",
+      desc: "Middleware Payment Gateway Proxy & Sub-Merchant Management API-First yang dibangun menggunakan Golang, Vue.js, MariaDB, dan Redis.",
+      tech: ["Golang", "Vue.js", "MariaDB", "Redis", "HMAC-SHA256", "Payment Gateway Proxy"],
+      image: Paycraft,
+      type: "Middleware & API",
+      isWip: true,
+      labelLink: "Sistem B2B Internal (WIP)",
+      link: "",
+    },
+    {
+      title: "Syncraft",
+      desc: "Platform WhatsApp Gateway API modern yang dirancang khusus untuk pengembang (developer-first), dibangun dengan arsitektur mikro berkinerja tinggi menggunakan Golang dan Nuxt.js.",
+      tech: ["Golang", "Nuxt.js", "Vue.js", "RESTful API", "WhatsApp Gateway"],
+      image: Syncraft,
+      type: "Full Stack",
+      labelLink: "Kunjungi Website",
+      link: "https://getsyncraft.com",
+    },
+    {
       title: "CraftiveNotify",
       desc: "Sistem WhatsApp Gateway SaaS (Software as a Service) yang mengintegrasikan payment gateway Midtrans untuk transaksi layanan.",
       tech: ["Laravel", "MariaDB", "Tailwind CSS", "Midtrans API", "SQLite", "Golang"],
@@ -286,18 +317,21 @@ const Portfolio = () => {
     },
     {
       title: "CraftiveSell",
-      desc: "Aplikasi Point of Sale (POS) cloud multi-tenant yang menerapkan notifikasi WhatsApp gateway sebagai media pengiriman nota transaksi (paperless).",
+      desc: "Aplikasi Point of Sale (POS) cloud multi-tenant yang telah dirilis di Google Play Store (PWA/TWA via Bubblewrap), menerapkan notifikasi WhatsApp gateway sebagai media pengiriman nota transaksi (paperless).",
       tech: [
         "CodeIgniter 4",
-        "Redis",
         "Vue.js",
+        "PWA (TWA / Bubblewrap)",
+        "Google Play Store",
+        "Redis",
         "MariaDB",
         "Whatsapp Gateway",
       ],
       image: Sell,
-      type: "Full Stack",
+      type: "Full Stack & Mobile",
       labelLink: "Kunjungi Website",
       link: "https://sell.craftivelabs.com",
+      playStoreLink: "https://play.google.com/store/apps/details?id=com.pebryan.craftivesell",
     },
     {
       title: "MLM Operational Systems",
@@ -771,6 +805,12 @@ const Portfolio = () => {
                       darkMode ? "bg-slate-900/10" : "bg-black/5"
                     }`}
                   ></div>
+                  {project.isWip && (
+                    <div className="absolute top-4 left-4 z-20 bg-amber-500/95 text-slate-950 font-bold backdrop-blur-md px-2.5 py-1 rounded-full text-xs flex items-center gap-1.5 shadow-md">
+                      <span className="w-2 h-2 rounded-full bg-slate-950 animate-pulse"></span>
+                      {lang === 'id' ? 'In Development' : 'In Development'}
+                    </div>
+                  )}
                   <div className="absolute top-4 right-4 z-20 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white">
                     {project.type}
                   </div>
@@ -816,27 +856,45 @@ const Portfolio = () => {
                       : "bg-gray-50 border-gray-200"
                   }`}
                 >
-                  {project.link ? (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`text-sm font-medium inline-flex items-center ${
-                        darkMode
-                          ? "text-blue-400 hover:text-blue-300"
-                          : "text-blue-600 hover:text-blue-700"
-                      }`}
-                    >
-                      {translations[lang].projectLabelLink[index]} &rarr;
-                    </a>
-                  ) : (
-                    <div className="flex items-center justify-between gap-2 text-gray-500">
-                    <span className="text-sm text-gray-500 font-medium">
-                      {lang == 'id' ? 'Sistem Internal Kampus' : 'Internal Campus System'}
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    {project.link ? (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`text-sm font-medium inline-flex items-center gap-1 ${
+                          darkMode
+                            ? "text-blue-400 hover:text-blue-300"
+                            : "text-blue-600 hover:text-blue-700"
+                        }`}
+                      >
+                        {translations[lang].projectLabelLink[index]} &rarr;
+                      </a>
+                    ) : (
+                      <div className="flex items-center justify-between gap-2 text-gray-500">
+                        <span className="text-sm text-gray-500 font-medium">
+                          {translations[lang].projectLabelLink[index]}
                         </span>
                         <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                    </div>
-                  )}
+                      </div>
+                    )}
+
+                    {project.playStoreLink && (
+                      <a
+                        href={project.playStoreLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`text-xs font-semibold px-3 py-1 rounded-full inline-flex items-center gap-1.5 transition-all shadow-sm ${
+                          darkMode
+                            ? "bg-emerald-950/80 text-emerald-400 border border-emerald-700 hover:bg-emerald-900/80 hover:text-emerald-300"
+                            : "bg-emerald-100 text-emerald-800 border border-emerald-300 hover:bg-emerald-200"
+                        }`}
+                      >
+                        <Smartphone size={14} />
+                        Google Play
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
@@ -922,7 +980,7 @@ const Portfolio = () => {
                         darkMode ? "text-white" : "text-gray-900"
                       }`}
                     >
-                      {exp.role} 
+                      {exp.role}
                     </h3>
                     <span
                       className={`text-sm font-medium ${
